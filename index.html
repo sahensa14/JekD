@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ada Pertanyaan Penting! ✨</title>
+    <title>Есть к тебе важный вопрос! ✨</title>
     <style>
         * {
             box-sizing: border-box;
@@ -92,12 +92,12 @@
             <!-- Kamu bisa mengganti URL gambar ini dengan GIF lucu pilihanmu -->
             <img src="https://media3.giphy.com/media/v1.Y2lkPTZjMDliOTUyNDRpZDVhNzQxcDY3MXBoaTFjZHVycTd3bmx5aGFyMDkzb3J4bDJwaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/L3jpfqZMwya6y6QLm4/giphy.gif" alt="Cute Bear">
         </div>
-        <h1 id="question">Weekend ini sibuk ga? Jalan yuk! ☕✨</h1>
-        <p id="subText">Aku tau tempat ngopi/es krim yang enak bgt.</p>
+        <h1 id="question">Ты свободна на выходных? Может,сходим куда-нибудь?  ☕✨</h1>
+        <p id="subText">Я знаю одно очень классное место с вкусным кофе и мороженым .</p>
 
         <div class="btn-group">
-            <button id="yesBtn" onclick="accepted()">Mau! 🌹</button>
-            <button id="noBtn" onmouseover="moveButton()" onclick="moveButton()">Enggak</button>
+            <button id="yesBtn" onclick="accepted()">Xочу! 🌹</button>
+            <button id="noBtn" onmouseover="moveButton()" onclick="moveButton()">Нет</button>
         </div>
     </div>
 
@@ -108,7 +108,7 @@
         const subText = document.getElementById('subText');
         const gif = document.querySelector('.gif-container img');
 
-        // Fungsi untuk membuat tombol "Enggak" menghindar saat didekati/diklik
+        // Fungsi untuk membuat tombol "Нет" menghindar saat didekati/diklik
         function moveButton() {
             // Menghitung batas area aman agar tombol tidak keluar dari layar ponsel
             const padding = 50;
@@ -128,8 +128,8 @@
         // Fungsi ketika tombol "Mau!" diklik
         function accepted() {
             // Mengubah teks dan tampilan setelah dia menerima ajakan
-            question.innerHTML = "Yesss! See you! 🥰🎉";
-            subText.innerHTML = "Nanti aku chat buat bahas jam dan tempatnya ya!";
+            question.innerHTML = "Ееее! Тогда до встречи!  🥰🎉";
+            subText.innerHTML = "Я потом напишу тебе, чтобы договориться насчёт времени и места !";
             
             // Mengubah GIF menjadi ekspresi senang
             gif.src = "https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUybW1vcGF6bm53cWt5dGhzaHA2cGdzMHRjY2U0dm1jdGlnYjVwa2pnOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/knY3fnN7KPySvGVSVp/giphy.gif";
@@ -137,7 +137,7 @@
             // Sembunyikan tombol "Enggak" dan pusatkan tombol "Mau!"
             noBtn.style.display = 'none';
             yesBtn.style.transform = 'scale(1.2)';
-            yesBtn.innerHTML = "Gak sabar! ❤️";
+            yesBtn.innerHTML = "Уже не терпится! ❤️";
             // Langsung membuka chat Telegram aquriusmans
             window.location.href = 'https://t.me/Aquriusmans?text=Привет,Давай!%20Anda';
             yesBtn.onclick = null;
