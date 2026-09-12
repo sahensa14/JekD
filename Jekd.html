@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ada Pertanyaan Penting! ✨</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ffe5ec, #ffc2d1);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+        }
+
+        .gif-container img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #ff4d6d;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: relative;
+            height: 50px;
+        }
+
+        button {
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        #yesBtn {
+            background-color: #ff4d6d;
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+        }
+
+        #yesBtn:hover {
+            transform: scale(1.1);
+        }
+
+        #noBtn {
+            background-color: #858585;
+            color: white;
+            position: absolute;
+            left: 55%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="gameCard">
+        <div class="gif-container">
+            <!-- Kamu bisa mengganti URL gambar ini dengan GIF lucu pilihanmu -->
+            <img src="https://media3.giphy.com/media/v1.Y2lkPTZjMDliOTUyNDRpZDVhNzQxcDY3MXBoaTFjZHVycTd3bmx5aGFyMDkzb3J4bDJwaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/L3jpfqZMwya6y6QLm4/giphy.gif" alt="Cute Bear">
+        </div>
+        <h1 id="question">Weekend ini sibuk ga? Jalan yuk! ☕✨</h1>
+        <p id="subText">Aku tau tempat ngopi/es krim yang enak bgt.</p>
+
+        <div class="btn-group">
+            <button id="yesBtn" onclick="accepted()">Mau! 🌹</button>
+            <button id="noBtn" onmouseover="moveButton()" onclick="moveButton()">Enggak</button>
+        </div>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+        const question = document.getElementById('question');
+        const subText = document.getElementById('subText');
+        const gif = document.querySelector('.gif-container img');
+
+        // Fungsi untuk membuat tombol "Enggak" menghindar saat didekati/diklik
+        function moveButton() {
+            // Menghitung batas area aman agar tombol tidak keluar dari layar ponsel
+            const padding = 50;
+            const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+            const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+
+            // Mengacak posisi baru
+            const randomX = Math.max(padding, Math.floor(Math.random() * maxX));
+            const randomY = Math.max(padding, Math.floor(Math.random() * maxY));
+
+            // Mengubah posisi tombol menjadi absolut terhadap layar
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+        }
+
+        // Fungsi ketika tombol "Mau!" diklik
+        function accepted() {
+            // Mengubah teks dan tampilan setelah dia menerima ajakan
+            question.innerHTML = "Yesss! See you! 🥰🎉";
+            subText.innerHTML = "Nanti aku chat buat bahas jam dan tempatnya ya!";
+            
+            // Mengubah GIF menjadi ekspresi senang
+            gif.src = "https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUybW1vcGF6bm53cWt5dGhzaHA2cGdzMHRjY2U0dm1jdGlnYjVwa2pnOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/knY3fnN7KPySvGVSVp/giphy.gif";
+            
+            // Sembunyikan tombol "Enggak" dan pusatkan tombol "Mau!"
+            noBtn.style.display = 'none';
+            yesBtn.style.transform = 'scale(1.2)';
+            yesBtn.innerHTML = "Gak sabar! ❤️";
+            // Langsung membuka chat Telegram aquriusmans
+            window.location.href = 'https://t.me';
+            yesBtn.onclick = null;
+            
+        }
+    </script>
+</body>
+</html>
